@@ -9,6 +9,7 @@ import documentRoutes from "./routes/documentRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import notificationsRoutes from "./routes/Notification.js";
 import Category from "./models/Category.js";
+import simpleAuthRoutes from "./routes/simpleAuth.js";
 
 dotenv.config();
 
@@ -18,12 +19,14 @@ app.use(cors({ origin: "*", credentials: true }));
 app.use(express.json());
 
 // Routes
-app.use("/api/auth", authRoutes);
+// app.use("/api/auth", authRoutes);
+app.use("/api/simple-auth",simpleAuthRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/documents", documentRoutes);
-app.use("/api/users", userRoutes);
+// app.use("/api/users", userRoutes);
 app.use("/api/notifications", notificationsRoutes);
 app.use("/documents", documentRoutes);
+
 
 const startServer = async () => {
   try {
